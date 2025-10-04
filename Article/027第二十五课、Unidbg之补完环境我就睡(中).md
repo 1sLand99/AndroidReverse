@@ -121,9 +121,9 @@ public class Bili extends AbstractJni {
   
 #### 三、文件处理的三种返回结果  
 在 `resolve` 方法中，你可以返回一个 `FileResult` 对象，它有三种状态：  
-4.  `FileResult.success(FileIO)`: 表示文件访问成功，返回一个 `FileIO` 对象。这是最常用的方式。  
-5.  `FileResult.failed(errno)`: 表示文件访问失败，并返回一个指定的错误码，如 `UnixEmulator.EACCES` (权限不足)。  
-6.  `FileResult.fallback()`: 表示回退，只有当其他所有处理器都无法处理时，才会由它来处理。  
+1.  `FileResult.success(FileIO)`: 表示文件访问成功，返回一个 `FileIO` 对象。这是最常用的方式。  
+2.  `FileResult.failed(errno)`: 表示文件访问失败，并返回一个指定的错误码，如 `UnixEmulator.EACCES` (权限不足)。  
+3.  `FileResult.fallback()`: 表示回退，只有当其他所有处理器都无法处理时，才会由它来处理。  
 #### 四、常规文件处理与 `FileIO` 对象  
 处理文件访问需要结合三方面的知识：Linux/Android 文件系统知识、对业务（风控/检测）的经验以及 Unidbg 的实现方法。  
 ##### 1. 使用 `SimpleFileIO` 处理物理文件  
